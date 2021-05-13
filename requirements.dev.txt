@@ -1,0 +1,5 @@
+neovim
+jedi
+pudb
+-r requirements.txt
+-e .[test]

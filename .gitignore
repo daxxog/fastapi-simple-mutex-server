@@ -1,0 +1,10 @@
+/htmlcov/
+/build/
+/dist/
+/env/
+/var/
+/.tox/
+.coverage
+.eggs/
+*.egg-info
+__pycache__/

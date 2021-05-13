@@ -1,0 +1,26 @@
+FROM python:__PYTHON_VERSION__-buster
+
+WORKDIR /usr/src/app
+
+
+# upgrade debian packages
+ENV DEBIAN_FRONTEND="noninteractive"
+RUN apt-get update
+RUN apt-get install apt-utils -y
+RUN apt-get upgrade -y
+
+
+# install application source code on image
+COPY ./src/fastapi_simple_mutex_server /usr/src/app/src/fastapi_simple_mutex_server
+COPY ./requirements.frozen.txt /usr/src/app
+COPY ./setup.py /usr/src/app
+COPY ./README.md /usr/src/app
+COPY ./VERSION /usr/src/app
+RUN pip install -r requirements.frozen.txt
+RUN pip install -e .
+
+# set default environment variables
+ENV FASMS_DEV_PROD_ENV=prod
+
+# default cmd -- run the app
+CMD fastapi-simple-mutex-server
