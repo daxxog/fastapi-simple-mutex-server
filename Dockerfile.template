@@ -1,3 +1,4 @@
+# vi:syntax=dockerfile
 FROM python:__PYTHON_VERSION__-buster
 
 WORKDIR /usr/src/app
