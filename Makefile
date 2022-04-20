@@ -31,7 +31,14 @@ release: version-bump
 
 .PHONY: version-bump
 version-bump:
-	scripts/version-bump.sh
+	if [ ! -f VERSION ]; then \
+		echo "1.0.0" | tee VERSION; \
+	else \
+		cat VERSION | \
+			awk '{split($$0,a,".");print a[1]"\."a[2]"\."a[3] + 1}' | \
+			tee _VERSION && \
+		mv _VERSION VERSION; \
+	fi
 
 
 .PHONY: debug-docker
