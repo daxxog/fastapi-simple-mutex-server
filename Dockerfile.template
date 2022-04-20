@@ -1,5 +1,5 @@
 # vi:syntax=dockerfile
-FROM python:__PYTHON_VERSION__-buster
+FROM python:__PYTHON_VERSION__-bullseye
 
 WORKDIR /usr/src/app
 
