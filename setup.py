@@ -6,7 +6,7 @@ requirements = [
     "fastapi",
     "uvicorn",
     "hiredis",
-    "aioredis"
+    "aioredis<2"
 ]
 
 tests_require = [
