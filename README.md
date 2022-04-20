@@ -8,6 +8,10 @@ A microservice with a redis backend that provides a simple interface for managin
 ```sh
 docker-compose up
 ```
+### Or in podman
+```sh
+podman run -d -i -t -p 6379:6379 redis:6-bullseye
+```
 
 ### Source the virtual environment
 ```sh
